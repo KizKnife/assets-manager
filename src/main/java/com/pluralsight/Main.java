@@ -47,13 +47,25 @@ public class Main {
         for (Asset asset : Assets) {
             String message = "";
 
+            System.out.printf(
+                    "Description: %s%n" +
+                    "Date acquired: %s%n" +
+                    "Paid: $%.2f%n" +
+                    "Value: $%.2f%n",
+                    asset.getDescription(),
+                    asset.getDateAcquired(),
+                    asset.getOriginalCost(),
+                    asset.getValue()
+            );
+
             if (asset instanceof House house) {
-                message = house.getDescription() + " at " + house.getAddress();
+                message = "House at " + house.getAddress();
             } else if (asset instanceof Vehicle vehicle) {
                 message = "Vehicle: " + vehicle.getYear() + " " + vehicle.getMakeModel();
             }
 
             System.out.println(message);
+            System.out.println();
         }
     }
 }
